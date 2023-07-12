@@ -32,3 +32,7 @@ button {
 .btn-add {
   background-color: #00bbf9;
 }
+
+.container {
+  display: flex;
+}

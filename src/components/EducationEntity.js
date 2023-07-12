@@ -5,19 +5,23 @@ class EducationEntity extends Component {
     super(props);
   }
 
-  render() {
-    const { school, schoolCity, subject, schoolStarted, schoolFinished } =
-      this.props;
-
-    return (
-      <div className="educationEntity">
-        <div>{school}</div>
-        <div>{schoolCity}</div>
-        <div>{subject}</div>
-        <div>{schoolStarted}</div>
-        <div>{schoolFinished}</div>
+  generateEntities = (entities) => {
+    return entities.map((entity, index) => (
+      <div className="educationEntity" key={index}>
+        <div>{entity.school}</div>
+        <div>{entity.schoolCity}</div>
+        <div>{entity.subject}</div>
+        <div>{entity.schoolStarted}</div>
+        <div>{entity.schoolFinished}</div>
       </div>
-    );
+    ));
+  };
+
+  render() {
+    const { education } = this.props;
+    const allEntities = this.generateEntities(education);
+
+    return <div className="container">{allEntities}</div>;
   }
 }
 

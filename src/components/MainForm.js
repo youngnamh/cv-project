@@ -83,6 +83,7 @@ class MainForm extends Component {
 
   addWork = (event) => {
     event.preventDefault();
+
     const workEntry = {
       company: this.state.inputs.company,
       position: this.state.inputs.position,
@@ -90,6 +91,7 @@ class MainForm extends Component {
       workStarted: this.state.inputs.workStarted,
       workFinished: this.state.inputs.workFinished,
     };
+
     this.setState((prevState) => ({
       inputs: {
         ...prevState.inputs,
@@ -160,7 +162,7 @@ class MainForm extends Component {
         </form>
 
         <h2>Education</h2>
-        <div className="educationContainer"></div>
+        <EducationEntity education={this.state.education} />
         <form onSubmit={this.addEducation}>
           <FormEntry
             text="School Name: "
@@ -197,7 +199,7 @@ class MainForm extends Component {
           </button>
         </form>
         <h2>Work Experience</h2>
-        <div className="workContainer"></div>
+        <WorkEntity work={this.state.work} />
         <form onSubmit={this.addWork}>
           <FormEntry
             text="Company: "
