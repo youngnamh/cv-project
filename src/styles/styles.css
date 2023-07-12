@@ -1,0 +1,26 @@
+* {
+  box-sizing: border-box;
+}
+
+.header {
+  border: 1px solid black;
+  text-align: center;
+  background-color: #1d3557;
+  color: white;
+}
+
+.mainForm {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#btn-generate {
+  margin: 1rem;
+  padding: 1rem;
+  background-color: #57cc99;
+  color: white;
+  font-weight: bold;
+  border: none;
+}
