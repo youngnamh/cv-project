@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import FormEntry from "./FormEntry";
+import WorkEntity from "./WorkEntity";
+import EducationEntity from "./EducationEntity";
 
 class MainForm extends Component {
   constructor(props) {
@@ -26,7 +28,7 @@ class MainForm extends Component {
         workFinished: "",
       },
       education: [],
-      experience: [],
+      work: [],
     };
   }
 
@@ -58,10 +60,48 @@ class MainForm extends Component {
 
   //education functions
   addEducation = (event) => {
+    const educationEntry = {
+      school: this.state.inputs.school,
+      schoolCity: this.state.inputs.schoolCity,
+      subject: this.state.inputs.subject,
+      schoolStarted: this.state.inputs.schoolStarted,
+      schoolFinished: this.state.inputs.schoolFinished,
+    };
+    this.setState((prevState) => ({
+      inputs: {
+        ...prevState.inputs,
+        school: "",
+        schoolCity: "",
+        subject: "",
+        schoolStarted: "",
+        schoolFinished: "",
+      },
+      education: [...prevState.education, educationEntry],
+    }));
     event.preventDefault();
   };
 
-  handleEducationChange = (event) => {};
+  addWork = (event) => {
+    event.preventDefault();
+    const workEntry = {
+      company: this.state.inputs.company,
+      position: this.state.inputs.position,
+      workCity: this.state.inputs.workCity,
+      workStarted: this.state.inputs.workStarted,
+      workFinished: this.state.inputs.workFinished,
+    };
+    this.setState((prevState) => ({
+      inputs: {
+        ...prevState.inputs,
+        company: "",
+        position: "",
+        workCity: "",
+        workStarted: "",
+        workFinished: "",
+      },
+      work: [...prevState.work, workEntry],
+    }));
+  };
 
   render() {
     return (
@@ -120,6 +160,7 @@ class MainForm extends Component {
         </form>
 
         <h2>Education</h2>
+        <div className="educationContainer"></div>
         <form onSubmit={this.addEducation}>
           <FormEntry
             text="School Name: "
@@ -151,11 +192,12 @@ class MainForm extends Component {
             placeholder="2020"
             onChange={this.handleInputChange}
           />
-          <button type="submit" id="btn-education">
+          <button type="submit" id="btn-education" className="btn-add">
             add
           </button>
         </form>
         <h2>Work Experience</h2>
+        <div className="workContainer"></div>
         <form onSubmit={this.addWork}>
           <FormEntry
             text="Company: "
@@ -187,7 +229,7 @@ class MainForm extends Component {
             placeholder="2020"
             onChange={this.handleInputChange}
           />
-          <button type="submit" id="btn-work">
+          <button type="submit" id="btn-work" className="btn-add">
             add
           </button>
         </form>

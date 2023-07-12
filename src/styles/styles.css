@@ -16,11 +16,19 @@
   align-items: center;
 }
 
-#btn-generate {
+button {
+  border: none;
   margin: 1rem;
   padding: 1rem;
-  background-color: #57cc99;
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.4);
   color: white;
   font-weight: bold;
-  border: none;
+}
+
+#btn-generate {
+  background-color: #57cc99;
+}
+
+.btn-add {
+  background-color: #00bbf9;
 }
