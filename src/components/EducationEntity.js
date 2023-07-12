@@ -7,12 +7,13 @@ class EducationEntity extends Component {
 
   generateEntities = (entities) => {
     return entities.map((entity, index) => (
-      <div className="educationEntity" key={index}>
+      <div className="entity" key={index}>
         <div>{entity.school}</div>
         <div>{entity.schoolCity}</div>
         <div>{entity.subject}</div>
-        <div>{entity.schoolStarted}</div>
-        <div>{entity.schoolFinished}</div>
+        <div>
+          {entity.schoolStarted}-{entity.schoolFinished}
+        </div>
       </div>
     ));
   };

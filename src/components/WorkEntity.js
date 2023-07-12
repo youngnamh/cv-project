@@ -7,12 +7,13 @@ class WorkEntity extends Component {
 
   generateEntities = (entities) => {
     return entities.map((entity, index) => (
-      <div className="workEntity" key={index}>
+      <div className="entity" key={index}>
         <div>{entity.company}</div>
         <div>{entity.position}</div>
         <div>{entity.workCity}</div>
-        <div>{entity.workStarted}</div>
-        <div>{entity.workFinished}</div>
+        <div>
+          {entity.workStarted}-{entity.workFinished}
+        </div>
       </div>
     ));
   };

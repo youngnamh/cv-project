@@ -12,7 +12,7 @@ class FormEntry extends Component {
   };
 
   render() {
-    const { text, id, placeholder } = this.props;
+    const { text, id, placeholder, value } = this.props;
 
     return (
       <div className="formEntry">
@@ -22,6 +22,7 @@ class FormEntry extends Component {
           id={id}
           placeholder={placeholder}
           onChange={this.handleChange}
+          value={value}
         ></input>
       </div>
     );
