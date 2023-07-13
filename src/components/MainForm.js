@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import FormEntry from "./FormEntry";
 import WorkEntity from "./WorkEntity";
 import EducationEntity from "./EducationEntity";
+import CV from "./CV";
 
 class MainForm extends Component {
   constructor(props) {
@@ -72,7 +73,7 @@ class MainForm extends Component {
     this.setState((prevState) => ({
       education: [...prevState.education, educationEntry],
       inputs: {
-        //...prevState.inputs,
+        ...prevState.inputs,
         school: "",
         schoolCity: "",
         subject: "",
@@ -256,6 +257,13 @@ class MainForm extends Component {
         <button type="button" id="btn-generate" onClick={this.handleSubmit}>
           Generate CV
         </button>
+        <div className="cvSlot">
+          <CV
+            inputs={this.state.inputs}
+            work={this.state.work}
+            education={this.state.education}
+          />
+        </div>
       </div>
     );
   }
